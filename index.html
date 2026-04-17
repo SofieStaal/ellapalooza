@@ -179,40 +179,6 @@
     50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.7), inset 0 0 30px rgba(255, 215, 0, 0.2); }
   }
 
-  /* DISCO BALLS */
-  .disco-ball {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 30% 30%, #fff, #e0e0e0 20%, #888 60%, #444 100%),
-      conic-gradient(from 0deg, silver, #fff, silver, #aaa, silver);
-    background-blend-mode: overlay;
-    box-shadow:
-      0 0 40px rgba(255, 255, 255, 0.6),
-      inset -10px -10px 20px rgba(0, 0, 0, 0.4),
-      inset 10px 10px 20px rgba(255, 255, 255, 0.3);
-    animation: spin 8s linear infinite, bob 3s ease-in-out infinite;
-  }
-  .disco-ball::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background:
-      repeating-linear-gradient(45deg, transparent 0 8px, rgba(0,0,0,0.2) 8px 9px),
-      repeating-linear-gradient(-45deg, transparent 0 8px, rgba(0,0,0,0.2) 8px 9px);
-  }
-  .disco-ball.one { top: 10%; left: 8%; }
-  .disco-ball.two { top: 15%; right: 10%; width: 60px; height: 60px; animation-delay: -2s; }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-
   /* SECTION COMMON */
   section {
     padding: 5rem 1.5rem;
@@ -541,8 +507,6 @@
 
   <main>
     <section class="hero">
-      <div class="disco-ball one"></div>
-      <div class="disco-ball two"></div>
       <div class="presents">SOFIE · ERIK · REIDAR · SARA · HÅVARD PRESENTS</div>
       <h1 class="title">ELLA<br/>PALOOZA</h1>
       <div class="year">— 2026 —</div>
