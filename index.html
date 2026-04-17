@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ELLAPALOOZA 2026 — The Official Festival</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Monoton&family=Rubik+Mono+One&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #ff2ec3;
+    --electric-purple: #9d00ff;
+    --laser-cyan: #00fff0;
+    --gold: #ffd700;
+    --sunset: #ff6b9d;
+    --deep: #0a0015;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* GLITTER LAYER */
+  .glitter, .glitter::before, .glitter::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+      radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 25% 70%, var(--gold), transparent),
+      radial-gradient(2px 2px at 40% 40%, var(--laser-cyan), transparent),
+      radial-gradient(1.5px 1.5px at 60% 15%, #fff, transparent),
+      radial-gradient(2px 2px at 75% 85%, var(--hot-pink), transparent),
+      radial-gradient(1px 1px at 85% 30%, var(--gold), transparent),
+      radial-gradient(1.5px 1.5px at 15% 90%, #fff, transparent),
+      radial-gradient(2px 2px at 50% 60%, var(--sunset), transparent),
+      radial-gradient(1px 1px at 95% 50%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 5% 50%, var(--laser-cyan), transparent);
+    background-size: 600px 600px;
+    animation: sparkle 3s linear infinite;
+  }
+  .glitter::before { animation-duration: 5s; background-size: 400px 400px; opacity: 0.7; }
+  .glitter::after { animation-duration: 7s; background-size: 800px 800px; opacity: 0.5; }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: translate(0, 0); }
+    25% { opacity: 0.4; transform: translate(10px, -10px); }
+    50% { opacity: 1; transform: translate(-5px, 5px); }
+    75% { opacity: 0.6; transform: translate(5px, -5px); }
+  }
+
+  /* BACKGROUND GRADIENT */
+  .bg-gradient {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 46, 195, 0.3), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(157, 0, 255, 0.4), transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(0, 255, 240, 0.15), transparent 50%),
+      linear-gradient(135deg, #1a0033 0%, #0a0015 50%, #330022 100%);
+    z-index: 0;
+    animation: gradientShift 10s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(30deg); }
+  }
+
+  main {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+  }
+
+  .presents {
+    font-family: 'Monoton', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    letter-spacing: 0.5em;
+    color: var(--laser-cyan);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px var(--laser-cyan);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px var(--laser-cyan), 0 0 20px var(--laser-cyan); }
+    to   { text-shadow: 0 0 20px var(--laser-cyan), 0 0 40px var(--laser-cyan), 0 0 60px var(--hot-pink); }
+  }
+
+  .title {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(3.5rem, 14vw, 11rem);
+    line-height: 0.95;
+    background: linear-gradient(
+      90deg,
+      var(--hot-pink),
+      var(--gold),
+      var(--laser-cyan),
+      var(--electric-purple),
+      var(--hot-pink)
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    filter: drop-shadow(0 0 30px rgba(255, 46, 195, 0.6));
+    margin-bottom: 1rem;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+  }
+
+  .year {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #fff;
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px var(--hot-pink);
+  }
+
+  .tagline {
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    max-width: 600px;
+    color: #fff;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .tagline strong {
+    color: var(--gold);
+    text-shadow: 0 0 15px var(--gold);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--gold);
+    border-radius: 999px;
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 0.85rem;
+    color: var(--gold);
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.1);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 215, 0, 0.7), inset 0 0 30px rgba(255, 215, 0, 0.2); }
+  }
+
+  /* DISCO BALLS */
+  .disco-ball {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, #fff, #e0e0e0 20%, #888 60%, #444 100%),
+      conic-gradient(from 0deg, silver, #fff, silver, #aaa, silver);
+    background-blend-mode: overlay;
+    box-shadow:
+      0 0 40px rgba(255, 255, 255, 0.6),
+      inset -10px -10px 20px rgba(0, 0, 0, 0.4),
+      inset 10px 10px 20px rgba(255, 255, 255, 0.3);
+    animation: spin 8s linear infinite, bob 3s ease-in-out infinite;
+  }
+  .disco-ball::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+      repeating-linear-gradient(45deg, transparent 0 8px, rgba(0,0,0,0.2) 8px 9px),
+      repeating-linear-gradient(-45deg, transparent 0 8px, rgba(0,0,0,0.2) 8px 9px);
+  }
+  .disco-ball.one { top: 10%; left: 8%; }
+  .disco-ball.two { top: 15%; right: 10%; width: 60px; height: 60px; animation-delay: -2s; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 5rem 1.5rem;
+    position: relative;
+  }
+
+  .section-title {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(90deg, var(--hot-pink), var(--gold), var(--laser-cyan));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 46, 195, 0.5));
+  }
+
+  /* LINEUP */
+  .lineup {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .headliner {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(3rem, 12vw, 9rem);
+    margin: 1rem 0;
+    background: linear-gradient(90deg, var(--gold), var(--hot-pink), var(--gold));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.8));
+    line-height: 1;
+  }
+
+  .headliner-label {
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    text-shadow: 0 0 20px var(--gold);
+  }
+
+  .supports {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .artist-card {
+    padding: 2rem 1rem;
+    border: 2px solid rgba(255, 46, 195, 0.5);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 46, 195, 0.15), rgba(157, 0, 255, 0.15));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255, 46, 195, 0.3), inset 0 0 20px rgba(255, 46, 195, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .artist-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--hot-pink), var(--laser-cyan), var(--gold), var(--electric-purple), var(--hot-pink));
+    background-size: 300% 300%;
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    animation: gradientMove 3s linear infinite;
+    transition: opacity 0.3s;
+  }
+
+  .artist-card:hover::before { opacity: 1; }
+  .artist-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 50px rgba(255, 46, 195, 0.6);
+  }
+
+  @keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .artist-name {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: #fff;
+    text-shadow: 0 0 15px var(--hot-pink);
+    margin-bottom: 0.5rem;
+  }
+
+  .artist-role {
+    font-family: 'Monoton', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--laser-cyan);
+    margin-bottom: 1rem;
+  }
+
+  .artist-song {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+  }
+
+  /* SCHEDULE */
+  .schedule {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .stage {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 2px dashed var(--gold);
+    border-radius: 20px;
+    background: rgba(255, 215, 0, 0.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+  }
+
+  .stage-name {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    background: linear-gradient(90deg, var(--gold), var(--hot-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .stage-sub {
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.3em;
+    color: var(--laser-cyan);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px var(--laser-cyan);
+  }
+
+  .stage-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* RSVP */
+  .rsvp {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .rsvp-intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+  }
+
+  .rsvp-intro em {
+    color: var(--gold);
+    font-style: normal;
+    text-shadow: 0 0 15px var(--gold);
+  }
+
+  .rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    border: 2px solid rgba(255, 46, 195, 0.5);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(255, 46, 195, 0.12), rgba(157, 0, 255, 0.12));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(255, 46, 195, 0.3), inset 0 0 30px rgba(255, 46, 195, 0.08);
+  }
+
+  .rsvp-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .rsvp-form label span {
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: var(--laser-cyan);
+    text-shadow: 0 0 10px var(--laser-cyan);
+  }
+
+  .rsvp-form input {
+    padding: 0.9rem 1rem;
+    background: rgba(10, 0, 21, 0.6);
+    border: 2px solid rgba(0, 255, 240, 0.3);
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    color-scheme: dark;
+  }
+
+  .rsvp-form input:focus {
+    outline: none;
+    border-color: var(--hot-pink);
+    box-shadow: 0 0 20px rgba(255, 46, 195, 0.5);
+  }
+
+  .rsvp-form button {
+    margin-top: 0.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 1rem;
+    color: var(--deep);
+    background: linear-gradient(90deg, var(--gold), var(--hot-pink), var(--gold));
+    background-size: 200% auto;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    animation: shimmer 3s linear infinite;
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+
+  .rsvp-form button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+  }
+
+  .rsvp-confirm {
+    margin-top: 2rem;
+    padding: 2.5rem 2rem;
+    border: 2px dashed var(--gold);
+    border-radius: 24px;
+    background: rgba(255, 215, 0, 0.08);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .confirm-sparkle {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+
+  .confirm-title {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    background: linear-gradient(90deg, var(--gold), var(--hot-pink), var(--gold));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+    margin-bottom: 1rem;
+  }
+
+  .confirm-body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 46, 195, 0.4);
+  }
+
+  .confirm-body strong {
+    color: var(--gold);
+    text-shadow: 0 0 15px var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hearts {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    background: linear-gradient(90deg, var(--hot-pink), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .crew {
+    font-family: 'Monoton', sans-serif;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  /* FLOATING EMOJIS */
+  .float {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 15s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="glitter"></div>
+
+  <main>
+    <section class="hero">
+      <div class="disco-ball one"></div>
+      <div class="disco-ball two"></div>
+      <div class="presents">SOFIE · ERIK · REIDAR PRESENTS</div>
+      <h1 class="title">ELLA<br/>PALOOZA</h1>
+      <div class="year">— 2026 —</div>
+      <p class="tagline">
+        One night. Four voices. <strong>One birthday queen.</strong><br/>
+        En drømmekveld i Oslo med de beste artistene og en kulinarisk opplevelse du sent vil glemme.<br/><br/>
+        <strong>For å feire dine 29 år på denne jorden.</strong>
+      </p>
+      <div class="badge">★ HEADLINER: ELLA ★</div>
+    </section>
+
+    <section id="lineup">
+      <div class="lineup">
+        <h2 class="section-title">THE LINEUP</h2>
+
+        <div class="headliner-label">— HEADLINING —</div>
+        <div class="headliner">ELLA</div>
+        <div class="headliner-label">THE BIRTHDAY GIRL</div>
+
+        <div class="supports">
+          <div class="artist-card">
+            <div class="artist-name">SOFIE</div>
+            <div class="artist-role">MAIN SUPPORT</div>
+            <div class="artist-song">♪ Angels Crying — E-Type ♪</div>
+          </div>
+          <div class="artist-card">
+            <div class="artist-name">ERIK</div>
+            <div class="artist-role">SPECIAL GUEST</div>
+            <div class="artist-song">♪ song TBA ♪</div>
+          </div>
+          <div class="artist-card">
+            <div class="artist-name">REIDAR</div>
+            <div class="artist-role">VERY SPECIAL GUEST</div>
+            <div class="artist-song">♪ Dragostea Din Tei — O-Zone ♪</div>
+          </div>
+          <div class="artist-card">
+            <div class="artist-name">ELLA</div>
+            <div class="artist-role">★ HEADLINER ★</div>
+            <div class="artist-song">♪ song TBA ♪</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp">
+      <h2 class="section-title">PICK YOUR DATE</h2>
+      <div class="rsvp">
+        <p class="rsvp-intro">
+          Ella! festivalen venter,<br/>
+          velg en kveld mellom nå (helst ikke akkurat i kveld da, vi må varme opp stemmene) og slutten av mai.
+        </p>
+        <form class="rsvp-form" id="rsvpForm">
+          <label>
+            <span>YOUR NAME</span>
+            <input type="text" name="name" value="Ella" required />
+          </label>
+          <label>
+            <span>CHOOSE A DATE</span>
+            <input type="date" name="date" id="rsvpDate" required />
+          </label>
+          <label>
+            <span>CHOOSE A TIME</span>
+            <input type="time" name="time" value="19:00" required />
+          </label>
+          <button type="submit">★ LOCK IT IN ★</button>
+        </form>
+        <div class="rsvp-confirm" id="rsvpConfirm" hidden>
+          <div class="confirm-sparkle">✨🎉✨</div>
+          <div class="confirm-title">DET ER OFFISIELT!</div>
+          <div class="confirm-body"></div>
+          <div class="confirm-sparkle">🪩💖🪩</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hearts">♥ HAPPY BIRTHDAY ELLA ♥</div>
+      <div class="crew">CREW · SOFIE · ERIK · REIDAR</div>
+    </footer>
+  </main>
+
+  <script>
+    // Floating sparkle emojis
+    const emojis = ['✨', '💖', '🪩', '🎤', '⭐', '💫', '🌟', '🎶'];
+    function spawnFloater() {
+      const el = document.createElement('div');
+      el.className = 'float';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (10 + Math.random() * 10) + 's';
+      el.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 20000);
+    }
+    setInterval(spawnFloater, 800);
+    for (let i = 0; i < 10; i++) setTimeout(spawnFloater, i * 200);
+
+    // RSVP date range: today through end of May 2026
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    const dateInput = document.getElementById('rsvpDate');
+    dateInput.min = todayStr;
+    dateInput.max = '2026-05-31';
+    dateInput.value = todayStr;
+
+    // Supabase config
+    const SUPABASE_URL = 'https://pvvpyffnndpxmuvlirvq.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_X7FDS6taCHnvgQ3A_bhgkA_0L9SPX4d';
+
+    // Submit handler
+    const form = document.getElementById('rsvpForm');
+    const confirmBox = document.getElementById('rsvpConfirm');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const chosen_date = data.get('date');
+      const chosen_time = data.get('time');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = '✨ LAGRER ✨';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/ellapalooza_rsvps`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ name, chosen_date, chosen_time })
+        });
+        if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
+        const dateStr = new Date(chosen_date).toLocaleDateString('nb-NO', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        });
+        confirmBox.querySelector('.confirm-body').innerHTML =
+          `${name} har bestemt seg.<br/><br/>` +
+          `Ellapalooza finner sted<br/>` +
+          `<strong>${dateStr}</strong><br/>` +
+          `kl. <strong>${chosen_time}</strong><br/><br/>` +
+          `Ta vare på stemmebåndene. 🎤`;
+        confirmBox.hidden = false;
+        form.style.display = 'none';
+        confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        for (let i = 0; i < 30; i++) setTimeout(spawnFloater, i * 80);
+      } catch (err) {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        alert('Oi! Noe gikk galt. Prøv igjen om et øyeblikk.');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
